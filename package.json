@@ -11,8 +11,10 @@
   "dependencies": {
     "@mui/material": "^5.0.2",
     "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest",
+    "@types/axios": "^0.14.0",
     "@typescript-eslint/eslint-plugin": "^4.32.0",
     "@typescript-eslint/parser": "^4.32.0",
+    "axios": "^0.22.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-typescript": "^2.5.0",

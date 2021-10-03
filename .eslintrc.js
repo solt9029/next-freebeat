@@ -5,13 +5,9 @@ module.exports = {
   env: {
     browser: true,
     es2020: true,
+    node: true,
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'plugin:prettier/recommended',
-  ],
+  extends: ['eslint:recommended', 'plugin:import/errors', 'plugin:import/warnings', 'plugin:prettier/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -52,7 +48,7 @@ module.exports = {
         endOfLine: 'lf',
         semi: false,
         singleQuote: true,
-        printWidth: 80,
+        printWidth: 120,
         tabWidth: 2,
       },
     ],
