@@ -4,12 +4,11 @@ import { ServerStyleSheet } from 'styled-components'
 import { theme } from '../theme'
 
 // https://next.material-ui.com/styles/advanced/#next-js
-export default class MyDocument extends Document {
+export default class AppDocument extends Document {
   render() {
     return (
       <Html lang="en">
         <Head>
-          {/* PWA primary color */}
           <meta content={theme.palette.primary.main} name="theme-color" />
           <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
         </Head>
@@ -23,7 +22,7 @@ export default class MyDocument extends Document {
 }
 
 // https://github.com/vercel/next.js/blob/master/examples/with-styled-components/pages/_document.js
-MyDocument.getInitialProps = async (ctx) => {
+AppDocument.getInitialProps = async (ctx) => {
   const sheet = new ServerStyleSheet()
   const originalRenderPage = ctx.renderPage
 
