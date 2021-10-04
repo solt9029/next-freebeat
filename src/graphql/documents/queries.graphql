@@ -1,0 +1,44 @@
+query playlist($id: Int!) {
+  playlist(id: $id) {
+    id
+    title
+    defaultBpm
+    maxPlaybackRate
+    minPlaybackRate
+    videos {
+      edges {
+        node {
+          id
+          youtubeVideoId
+          youtubeVideoTitle
+          bpm
+        }
+      }
+    }
+  }
+}
+
+query playlists($after: String, $keyword: String, $first: Int!, $ids: [Int!]) {
+  playlists(after: $after, first: $first, keyword: $keyword, ids: $ids) {
+    pageInfo {
+    hasNextPage
+      endCursor
+    }
+    edges {
+      cursor
+      node {
+        id
+        title
+        defaultBpm
+        createdAt
+        videos(first: 1) {
+          edges {
+            node {
+              youtubeVideoId
+            }
+          }
+        }
+      }
+    }
+  }
+}
