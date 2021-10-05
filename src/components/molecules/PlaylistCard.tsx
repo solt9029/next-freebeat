@@ -15,6 +15,15 @@ const Title = styled(Typography)`
   font-size: 1rem;
 `
 
+const StyledCardHeader = styled(CardHeader)`
+  .MuiCardHeader-root {
+    overflow: hidden;
+  }
+  .MuiCardHeader-content {
+    overflow: hidden;
+  }
+`
+
 type Props = {
   id: number
   title: string
@@ -31,9 +40,7 @@ export function PlaylistCard(props: Props) {
         image={`https://i.ytimg.com/vi/${props.firstYoutubeVideoId}/mqdefault.jpg`}
         style={{ height: 0, paddingTop: '56.25%' }}
       />
-      {/* TODO: contentとrootでoverflow:hiddenを入れて文字が溢れたときにいい感じにしたい */}
-      <CardHeader
-        style={{ overflow: 'hidden' }}
+      <StyledCardHeader
         avatar={<Avatar component="span" aria-label="recipe"></Avatar>}
         title={
           <div style={{ width: '100%' }}>
