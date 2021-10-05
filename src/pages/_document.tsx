@@ -4,7 +4,7 @@ import { ServerStyleSheet } from 'styled-components'
 import { theme } from '../theme'
 
 // https://next.material-ui.com/styles/advanced/#next-js
-export default class AppDocument extends Document {
+export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
@@ -22,7 +22,7 @@ export default class AppDocument extends Document {
 }
 
 // https://github.com/vercel/next.js/blob/master/examples/with-styled-components/pages/_document.js
-AppDocument.getInitialProps = async (ctx) => {
+MyDocument.getInitialProps = async (ctx) => {
   const sheet = new ServerStyleSheet()
   const originalRenderPage = ctx.renderPage
 
@@ -36,10 +36,10 @@ AppDocument.getInitialProps = async (ctx) => {
     return {
       ...initialProps,
       styles: (
-        <React.Fragment>
+        <>
           {initialProps.styles}
           {sheet.getStyleElement()}
-        </React.Fragment>
+        </>
       ),
     }
   } finally {
