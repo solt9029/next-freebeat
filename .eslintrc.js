@@ -6,6 +6,7 @@ module.exports = {
     browser: true,
     es2020: true,
     node: true,
+    'jest/globals': true,
   },
   extends: ['eslint:recommended', 'plugin:import/errors', 'plugin:import/warnings', 'plugin:prettier/recommended'],
   parser: '@typescript-eslint/parser',
@@ -16,7 +17,7 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'react', 'import'],
+  plugins: ['@typescript-eslint', 'react', 'import', 'jest'],
   settings: {
     'import/resolver': {
       node: {
