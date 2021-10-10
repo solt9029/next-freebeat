@@ -10,6 +10,7 @@ import {
   ListItemText,
   Toolbar,
   Typography,
+  withTheme,
 } from '@mui/material'
 import React, { useState } from 'react'
 import Link from 'next/link'
@@ -17,7 +18,7 @@ import { useRouter } from 'next/dist/client/router'
 import { Add, Home, Info, ListAlt, Menu } from '@mui/icons-material'
 import styled from 'styled-components'
 
-const Title = styled(Typography)`
+const Title = styled(withTheme(Typography))`
   flex-grow: 1;
   display: none;
   ${(props) => props.theme.breakpoints.up('sm')} {
