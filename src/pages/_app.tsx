@@ -3,6 +3,7 @@ import { StylesProvider } from '@mui/styles'
 import * as React from 'react'
 import Head from 'next/head'
 import { theme } from '../theme'
+import { Navbar } from '../components/Navbar'
 
 export default function App({ Component, pageProps }) {
   React.useEffect(() => {
@@ -41,6 +42,7 @@ export default function App({ Component, pageProps }) {
       <StylesProvider injectFirst>
         <ThemeProvider theme={theme}>
           <CssBaseline />
+          <Navbar />
           <Component {...pageProps} />
         </ThemeProvider>
       </StylesProvider>

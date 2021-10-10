@@ -1,13 +1,8 @@
-import { AppBar, Grid, Toolbar, Typography } from '@mui/material'
+import { Grid } from '@mui/material'
 import { PlaylistCard } from '../components/PlaylistCard'
 
 const IndexPage = () => (
   <>
-    <AppBar position="static">
-      <Toolbar>
-        <Typography variant="h6">FreeBeat</Typography>
-      </Toolbar>
-    </AppBar>
     <Grid container spacing={2}>
       <Grid item lg={4} md={4} sm={4} xs={12} zeroMinWidth>
         <PlaylistCard
