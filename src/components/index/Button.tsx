@@ -1,14 +1,13 @@
-import { Button as MaterialButton, makeStyles } from '@material-ui/core'
+import { Button as MuiButton } from '@mui/material'
+import { withTheme } from '@mui/styles'
 import React from 'react'
+import styled from 'styled-components'
 
-const useStyles = makeStyles(() => ({
-  button: {
-    fontSize: '1rem',
-    margin: '8px',
-  },
-}))
+const StyledButton = styled(withTheme(MuiButton))`
+  font-size: 1rem;
+  margin: 8px;
+`
 
 export function Button(props) {
-  const classes = useStyles()
-  return <MaterialButton {...props} className={classes.button} />
+  return <StyledButton {...props} />
 }

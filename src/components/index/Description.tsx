@@ -1,20 +1,14 @@
-import { makeStyles, Typography } from '@material-ui/core'
+import { Typography } from '@mui/material'
+import { withTheme } from '@mui/styles'
 import React from 'react'
+import styled from 'styled-components'
 
-const useStyles = makeStyles(() => ({
-  description: {
-    lineHeight: 1.6,
-    fontSize: '1.1rem',
-    fontWeight: 100,
-  },
-}))
+const StyledTypography = styled(withTheme(Typography))`
+  line-height: 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 100;
+`
 
 export function Description({ children }: { children: React.ReactNode }) {
-  const classes = useStyles()
-
-  return (
-    <Typography variant="h2" className={classes.description} style={{ lineHeight: '2.5rem' }}>
-      {children}
-    </Typography>
-  )
+  return <StyledTypography variant="h2">{children}</StyledTypography>
 }

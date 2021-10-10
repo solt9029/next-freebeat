@@ -1,71 +1,56 @@
-import { Avatar, Card, CardHeader, CardMedia, makeStyles, Typography } from '@material-ui/core'
-import { useRouter } from 'next/dist/client/router'
+import { Avatar, Card, CardHeader, CardMedia, Typography } from '@mui/material'
 import React from 'react'
 import moment from 'moment'
+import styled from 'styled-components'
 
-const useStyles = makeStyles(() => ({
-  card: {
-    cursor: 'pointer',
-    width: '100%',
-  },
-  title: {
-    overflow: 'hidden',
-    whiteSpace: 'nowrap',
-    textOverflow: 'ellipsis',
-    fontSize: '1rem',
-  },
-  cardHeader: {
-    display: 'block',
-    overflow: 'hidden',
-  },
-  cardHeaderRoot: {
-    overflow: 'hidden',
-  },
-  cardHeaderContent: {
-    overflow: 'hidden',
-  },
-}))
+const StyledCard = styled(Card)`
+  cursor: pointer;
+  width: 100%;
+`
+
+const Title = styled(Typography)`
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 1rem;
+`
+
+const StyledCardHeader = styled(CardHeader)`
+  .MuiCardHeader-root {
+    overflow: hidden;
+  }
+  .MuiCardHeader-content {
+    overflow: hidden;
+  }
+`
 
 type Props = {
   id: number
   title: string
   defaultBpm: number
   firstYoutubeVideoId: string
+  onClick?: () => void
   createdAt: any
 }
 
 export function PlaylistCard(props: Props) {
-  const classes = useStyles()
-  const router = useRouter()
-
-  const handleClick = () => {
-    router.push(`/playlists/${props.id}/edit`)
-  }
-
   return (
-    <Card className={classes.card} variant="outlined" onClick={handleClick}>
+    <StyledCard variant="outlined" onClick={props.onClick}>
       <CardMedia
         image={`https://i.ytimg.com/vi/${props.firstYoutubeVideoId}/mqdefault.jpg`}
-        style={{
-          height: 0,
-          paddingTop: '56.25%',
-        }}
+        style={{ height: 0, paddingTop: '56.25%' }}
       />
-      <CardHeader
-        classes={{
-          root: classes.cardHeaderRoot,
-          content: classes.cardHeaderContent,
-        }}
+      <StyledCardHeader
         avatar={<Avatar component="span" aria-label="recipe"></Avatar>}
         title={
           <div style={{ width: '100%' }}>
-            <Typography component="div" noWrap className={classes.title}>
+            <Title component="div" noWrap>
               {props.title}
-            </Typography>
+            </Title>
           </div>
         }
         subheader={`BPM${props.defaultBpm}・${moment(Date.parse(props.createdAt)).format('YYYY年MM月DD日')}`}
       />
-    </Card>
+    </StyledCard>
   )
 }
