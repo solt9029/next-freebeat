@@ -1,5 +1,5 @@
 import { AppBar, Grid, Toolbar, Typography } from '@mui/material'
-import { PlaylistCard } from '../components/molecules/PlaylistCard'
+import { PlaylistCard } from '../components/PlaylistCard'
 
 const IndexPage = () => (
   <>
