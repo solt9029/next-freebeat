@@ -10,23 +10,26 @@ import {
   ListItemText,
   Toolbar,
   Typography,
-  withTheme,
-} from '@mui/material'
+  makeStyles,
+} from '@material-ui/core'
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
-import { Add, Home, Info, ListAlt, Menu } from '@mui/icons-material'
-import styled from 'styled-components'
+import { Add, Home, Info, ListAlt, Menu } from '@material-ui/icons'
+import { SearchField } from './SearchField'
 
-const Title = styled(withTheme(Typography))`
-  flex-grow: 1;
-  display: none;
-  ${(props) => props.theme.breakpoints.up('sm')} {
-    display: block;
-  }
-`
+const useStyles = makeStyles((theme) => ({
+  title: {
+    flexGrow: 1,
+    display: 'none',
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
+    },
+  },
+}))
 
 export function Navbar() {
+  const classes = useStyles()
   const { pathname } = useRouter()
   const [isDrawerOpened, setIsDrawerOpened] = useState(false)
 
@@ -45,12 +48,13 @@ export function Navbar() {
             >
               <Menu />
             </IconButton>
-            <Title variant="h6">
+            <Typography variant="h6" className={classes.title}>
               <Link href="/">
                 <span style={{ textDecoration: 'none', cursor: 'pointer' }}>FreeBeat</span>
               </Link>
-            </Title>
-            {pathname === '/playlists' && <div>サーチフォーム</div>}
+            </Typography>
+            <SearchField />
+            {pathname === '/playlists' && <SearchField />}
           </Toolbar>
         </Container>
       </AppBar>

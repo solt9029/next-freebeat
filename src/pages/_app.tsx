@@ -1,11 +1,11 @@
-import { CssBaseline, ThemeProvider } from '@mui/material'
-import { StylesProvider } from '@mui/styles'
+import { CssBaseline } from '@material-ui/core'
+import { StylesProvider, ThemeProvider } from '@material-ui/styles'
 import * as React from 'react'
 import Head from 'next/head'
 import { theme } from '../theme'
 import { Navbar } from '../components/Navbar'
 
-export default function App({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
   React.useEffect(() => {
     const jssStyles: Element | null = document.querySelector('#jss-server-side')
     if (jssStyles) {
