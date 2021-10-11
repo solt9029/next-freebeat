@@ -16,6 +16,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
 import { Add, Home, Info, ListAlt, Menu } from '@mui/icons-material'
 import { styled } from '@mui/system'
+import { SearchField } from './SearchField'
 
 const Title = styled(Typography)(({ theme }) => ({
   flexGrow: 1,
@@ -49,7 +50,7 @@ export function Navbar() {
                 <span style={{ textDecoration: 'none', cursor: 'pointer' }}>FreeBeat</span>
               </Link>
             </Title>
-            {pathname === '/playlists' && <div>サーチフォーム</div>}
+            {pathname === '/playlists' && <SearchField />}
           </Toolbar>
         </Container>
       </AppBar>
