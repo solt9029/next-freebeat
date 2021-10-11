@@ -10,21 +10,20 @@ import {
   ListItemText,
   Toolbar,
   Typography,
-  withTheme,
 } from '@mui/material'
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
 import { Add, Home, Info, ListAlt, Menu } from '@mui/icons-material'
-import styled from 'styled-components'
+import { styled } from '@mui/system'
 
-const Title = styled(withTheme(Typography))`
-  flex-grow: 1;
-  display: none;
-  ${(props) => props.theme.breakpoints.up('sm')} {
-    display: block;
-  }
-`
+const Title = styled(Typography)(({ theme }) => ({
+  flexGrow: 1,
+  display: 'none',
+  [theme.breakpoints.up('sm')]: {
+    display: 'block',
+  },
+}))
 
 export function Navbar() {
   const { pathname } = useRouter()

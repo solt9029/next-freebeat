@@ -1,19 +1,19 @@
 import { Avatar, Card, CardHeader, CardMedia, Typography } from '@mui/material'
 import React from 'react'
 import moment from 'moment'
-import styled from 'styled-components'
+import { styled } from '@mui/system'
 
-const StyledCard = styled(Card)`
-  cursor: pointer;
-  width: 100%;
-`
+const StyledCard = styled(Card)({
+  cursor: 'pointer',
+  width: '100%',
+})
 
-const Title = styled(Typography)`
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  font-size: 1rem;
-`
+const Title = styled(Typography)({
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
+  fontSize: '1rem',
+}) as typeof Typography
 
 const StyledCardHeader = styled(CardHeader)`
   .MuiCardHeader-root {

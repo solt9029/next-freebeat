@@ -1,13 +1,12 @@
 import { Typography } from '@mui/material'
-import { withTheme } from '@mui/styles'
+import { styled } from '@mui/system'
 import React from 'react'
-import styled from 'styled-components'
 
-const StyledTypography = styled(withTheme(Typography))`
-  line-height: 2.5rem;
-  font-size: 1.1rem;
-  font-weight: 100;
-`
+const StyledTypography = styled(Typography)({
+  lineHeight: 1.6,
+  fontSize: '1.1rem',
+  fontWeight: 100,
+})
 
 export function Description({ children }: { children: React.ReactNode }) {
   return <StyledTypography variant="h2">{children}</StyledTypography>
